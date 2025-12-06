@@ -1,56 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon | Biggan Kits</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #d7dee6;
-      color: #0a4f6e;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 0.2rem 0 1.5rem;
-    }
-    .container {
-      background: #cdd7dd;
-      padding: 40px 60px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .footer {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    a {
-      color: #0a4f6e;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite;
+        }
+
+        .circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .circle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 70%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-30px) translateX(20px);
+            }
+            50% {
+                transform: translateY(-60px) translateX(-20px);
+            }
+            75% {
+                transform: translateY(-30px) translateX(20px);
+            }
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .logo svg {
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .info {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.85;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .email-contact {
+            font-size: 1.1rem;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .email-contact a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .email-contact a:hover {
+            border-bottom-color: white;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .info {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                margin: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Coming Soon</h1>
-    <p>Biggan Kits (বিজ্ঞান কিটস) is preparing something educational and exciting for STEM learners in Bangladesh.</p>
-    <p><a href="https://biggankits.com">https://BigganKits.com</a></p>
-    <p>#BigganKits #ScienceKitBD #STEMBD #Physics #Chemistry #Math</p>
-  </div>
-  <div class="footer">বিজ্ঞান কিটস</div>
+    <div class="background-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <svg width="280" height="120" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(140, 10)">
+                    <g transform="translate(-28, 0) scale(0.28)">
+                        <!-- Double Circle -->
+                        <circle cx="100" cy="100" r="80" stroke="#fff" stroke-width="4" fill="none"/>
+                        <circle cx="100" cy="100" r="70" stroke="#fff" stroke-width="2" fill="none"/>
+                        <!-- Bangla Text -->
+                        <text x="100" y="108" font-family="Noto Sans Bengali, Arial, sans-serif" font-size="32" text-anchor="middle" fill="#fff">
+                            বিজ্ঞান
+                        </text>
+                        <!-- English Text -->
+                        <text x="100" y="138" font-family="Noto Sans, Arial, sans-serif" font-size="20" text-anchor="middle" letter-spacing="2" fill="#fff">
+                            KITS
+                        </text>
+                    </g>
+                    <!-- Brand Name -->
+                    <text x="0" y="80" font-family="Arial, sans-serif" font-size="18" fill="#fff" font-weight="600" text-anchor="middle">
+                        Biggan Kits - বিজ্ঞান কিটস
+                    </text>
+                </g>
+            </svg>
+        </div>
+        <h1>Coming Soon</h1>
+        <p class="subtitle">Coming Soon</p>
+        <p class="info">
+            Biggan Kits is developing a simple, reliable platform for STEM (Science, Technology, Engineering, Mathematics) learning tools and science project kits in Bangladesh. This website is in continuous development.
+        </p>
+        <p class="info" style="margin-top: 20px;">
+            🔬 Science kits & educational tools<br>
+            🚚 Nationwide delivery in Bangladesh<br>
+            💬 Inbox to order
+        </p>
+        
+        <div class="social-links">
+            <a href="https://facebook.com/BigganKits" target="_blank">
+                <span>📘</span>
+                <span>Follow on Facebook</span>
+            </a>
+        </div>
+
+        <div class="email-contact">
+            <p>Contact us: <a href="mailto:biggankits@gmail.com">biggankits@gmail.com</a></p>
+            <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.8;">#BigganKits #ScienceKitBD #STEMBD #SchoolProjectBD</p>
+        </div>
+    </div>
 </body>
 </html>
